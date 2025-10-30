@@ -1,15 +1,23 @@
-function divide(a, b) {
-  if (a === undefined || b === undefined) {
+/**
+ * Adds two numbers together with input validation.
+ *
+ * @param {number} a - The first number.
+ * @param {number} b - The second number.
+ * @returns {number|string} The sum of the two numbers, or an error message
+ *                          if inputs are invalid.
+ */
+function add(a, b) {
+  // Check if either input is missing (undefined or null)
+  if (a == null || b == null) {
     return "Error: Both numbers must be provided.";
   }
 
-  if (typeof a !== "number" || typeof b !== "number" || isNaN(a) || isNaN(b)) {
+  // Ensure both inputs are valid numbers
+  // Number.isNaN() checks specifically for NaN values
+  if (typeof a !== "number" || typeof b !== "number" || Number.isNaN(a) || Number.isNaN(b)) {
     return "Error: Both inputs must be valid numbers.";
   }
 
-  if (b === 0) {
-    return "Error: Cannot divide by zero.";
-  }
-
-  return a / b;
+  // If all checks pass, return the result of the addition
+  return a + b;
 }
